@@ -17,6 +17,7 @@ export default abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async create(obj: T): Promise<T> {
+    console.log('mongoModel', obj)
     return this._model.create({ ...obj });
   }
 }

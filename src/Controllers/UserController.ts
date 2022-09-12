@@ -18,6 +18,8 @@ export default class UserController implements IUserController {
 
   async create(req: Request, res: Response): Promise<Response> {
     const newUser = req.body
+    console.log(newUser);
+    console.log('oi')
     const user = await this.service.create(newUser);
     return res.status(201).json(user);
   }

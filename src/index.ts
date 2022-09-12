@@ -1,3 +1,4 @@
+import "./Models/connection"
 import userRouter from "./Routes/user.route"
 
 const express = require('express')
