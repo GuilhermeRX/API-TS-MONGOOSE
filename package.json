@@ -1,0 +1,20 @@
+{
+  "name": "api-ts-mongoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeRX/API-TS-MONGOOSE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuilhermeRX/API-TS-MONGOOSE/issues"
+  },
+  "homepage": "https://github.com/GuilhermeRX/API-TS-MONGOOSE#readme"
+}
