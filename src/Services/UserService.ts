@@ -5,12 +5,17 @@ import User from "../Models/User";
 export default class UserService implements IUserService {
   protected _userModel = new User()
   async findAll(): Promise<IUser[]> {
-    const users = this._userModel.findAll()
+    const users = await this._userModel.findAll()
     return users;
   }
 
   async findOne(id: string): Promise<IUser | null> {
-    const user = this._userModel.findOne(id)
+    const user = await this._userModel.findOne(id)
+    return user;
+  }
+
+  async create(obj: IUser): Promise<IUser> {
+    const user = await this._userModel.create(obj)
     return user;
   }
 }

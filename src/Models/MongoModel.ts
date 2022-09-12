@@ -15,4 +15,8 @@ export default abstract class MongoModel<T> implements IModel<T> {
   public async findOne(_id: string): Promise<T | null> {
     return this._model.findOne({ _id })
   }
+
+  public async create(obj: T): Promise<T> {
+    return this._model.create({ ...obj });
+  }
 }

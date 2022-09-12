@@ -15,4 +15,10 @@ export default class UserController implements IUserController {
     const user = await this.service.findOne(id);
     return res.status(200).json(user);
   }
+
+  async create(req: Request, res: Response): Promise<Response> {
+    const newUser = req.body
+    const user = await this.service.create(newUser);
+    return res.status(201).json(user);
+  }
 }

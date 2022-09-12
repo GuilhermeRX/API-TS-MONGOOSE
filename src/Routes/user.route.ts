@@ -8,5 +8,5 @@ const userRouter = Router();
 
 userRouter.get('/', (req, res) => userController.findAll(req, res));
 userRouter.get('/:id', (req, res) => userController.findOne(req, res));
-
+userRouter.post('/', (req, res) => userController.create(req, res));
 export default userRouter;
