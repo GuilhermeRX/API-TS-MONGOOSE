@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import IUserController from "../Interfaces/IUserController";
 import UserService from "../Services/UserService";
 
-class UserController implements IUserController {
+export default class UserController implements IUserController {
   constructor(private service: UserService) { }
 
   async findAll(req: Request, res: Response): Promise<Response> {
