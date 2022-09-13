@@ -17,8 +17,7 @@ export default class UserController implements IController {
   }
 
   async create(req: Request, res: Response): Promise<Response> {
-    const newUser = req.body
-    const user = await this.service.create(newUser);
+    const user = await this.service.create(req.body);
     return res.status(201).json(user);
   }
 }

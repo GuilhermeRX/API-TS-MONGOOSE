@@ -1,5 +1,5 @@
 import IService from "../Interfaces/IService";
-import IUser from "../Interfaces/IUser";
+import IUser, { userSchemaZod } from "../Interfaces/IUser";
 import User from "../Models/User";
 
 export default class UserService implements IService<IUser>{
@@ -15,6 +15,7 @@ export default class UserService implements IService<IUser>{
   }
 
   async create(obj: IUser): Promise<IUser> {
+    userSchemaZod.parse(obj);
     const user = await this._userModel.create(obj)
     return user;
   }
