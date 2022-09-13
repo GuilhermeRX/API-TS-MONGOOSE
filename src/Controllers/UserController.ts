@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import IUserController from "../Interfaces/IUserController";
+import IController from "../Interfaces/IController";
 import UserService from "../Services/UserService";
 
-export default class UserController implements IUserController {
+export default class UserController implements IController {
   constructor(private service: UserService) { }
 
   async findAll(req: Request, res: Response): Promise<Response> {
@@ -18,8 +18,6 @@ export default class UserController implements IUserController {
 
   async create(req: Request, res: Response): Promise<Response> {
     const newUser = req.body
-    console.log(newUser);
-    console.log('oi')
     const user = await this.service.create(newUser);
     return res.status(201).json(user);
   }

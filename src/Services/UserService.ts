@@ -1,8 +1,8 @@
+import IService from "../Interfaces/IService";
 import IUser from "../Interfaces/IUser";
-import IUserService from "../Interfaces/IUserService";
 import User from "../Models/User";
 
-export default class UserService implements IUserService {
+export default class UserService implements IService<IUser>{
   protected _userModel = new User()
   async findAll(): Promise<IUser[]> {
     const users = await this._userModel.findAll()
