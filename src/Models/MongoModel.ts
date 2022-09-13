@@ -1,4 +1,5 @@
-import { Model } from "mongoose";
+import { isValidObjectId, Model } from "mongoose";
+import { ErrorTypes } from "../errors/catalog";
 import IModel from "../Interfaces/IModel";
 
 export default abstract class MongoModel<T> implements IModel<T> {
@@ -13,6 +14,9 @@ export default abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async findOne(_id: string): Promise<T | null> {
+    if (!isValidObjectId(_id)) {
+      throw new Error(ErrorTypes.InvalidMongoId)
+    }
     return this._model.findOne({ _id })
   }
 

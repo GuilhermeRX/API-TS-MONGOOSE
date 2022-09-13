@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const IUser_1 = require("../Interfaces/IUser");
 const User_1 = __importDefault(require("../Models/User"));
 class UserService {
     constructor() {
@@ -31,6 +32,7 @@ class UserService {
     }
     create(obj) {
         return __awaiter(this, void 0, void 0, function* () {
+            IUser_1.userSchemaZod.parse(obj);
             const user = yield this._userModel.create(obj);
             return user;
         });

@@ -28,8 +28,7 @@ class UserController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const newUser = req.body;
-            const user = yield this.service.create(newUser);
+            const user = yield this.service.create(req.body);
             return res.status(201).json(user);
         });
     }

@@ -9,6 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const catalog_1 = require("../errors/catalog");
 class MongoModel {
     constructor(model) {
         this._model = model;
@@ -20,6 +22,9 @@ class MongoModel {
     }
     findOne(_id) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (!(0, mongoose_1.isValidObjectId)(_id)) {
+                throw new Error(catalog_1.ErrorTypes.InvalidMongoId);
+            }
             return this._model.findOne({ _id });
         });
     }
